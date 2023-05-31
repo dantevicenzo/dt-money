@@ -33,4 +33,10 @@ export const GlobalStyle = createGlobalStyle`
 
     transition: background-color, color, 0.15s;
   }
+
+  ::placeholder,
+  :-ms-input-placeholder,
+  ::-ms-input-placeholder { 
+    color: ${(props) => props.theme.grey5}
+  }
 `
