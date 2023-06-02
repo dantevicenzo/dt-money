@@ -49,7 +49,9 @@ export const Card = styled.div<ICardProps>`
   }
 
   strong {
+    display: block;
     font-size: 2rem;
+    margin-top: 0.75rem;
     color: ${(props) => props.theme.grey7};
   }
 `

@@ -1,17 +1,7 @@
 import logo from '../../assets/logo.svg'
-import {
-  Container,
-  StyledHeader,
-  StyledButton,
-  Overlay,
-  Content,
-  Form,
-  RadioGroupRoot,
-  RadioGroupItem,
-  DialogClose,
-} from './styles'
+import { Container, StyledHeader, StyledButton } from './styles'
 import * as Dialog from '@radix-ui/react-dialog'
-import { ArrowCircleUp, ArrowCircleDown, X } from '@phosphor-icons/react'
+import { NewTransactionModal } from '../NewTransactionModal'
 
 export function Header() {
   return (
@@ -23,33 +13,7 @@ export function Header() {
           <Dialog.Trigger asChild>
             <StyledButton type="button">Nova Transação</StyledButton>
           </Dialog.Trigger>
-          <Dialog.Portal>
-            <Overlay />
-            <Content>
-              <strong>Nova Transação</strong>
-
-              <Form>
-                <input type="text" placeholder="Descrição" />
-                <input type="text" placeholder="Preço" />
-                <input type="text" placeholder="Categoria" />
-                <RadioGroupRoot>
-                  <RadioGroupItem value="income">
-                    <ArrowCircleUp size={24} />
-                    Entrada
-                  </RadioGroupItem>
-                  <RadioGroupItem value="outcome">
-                    <ArrowCircleDown size={24} />
-                    Saída
-                  </RadioGroupItem>
-                </RadioGroupRoot>
-                <StyledButton type="submit">Cadastrar</StyledButton>
-              </Form>
-
-              <DialogClose>
-                <X size={24} />
-              </DialogClose>
-            </Content>
-          </Dialog.Portal>
+          <NewTransactionModal />
         </Dialog.Root>
       </StyledHeader>
     </Container>

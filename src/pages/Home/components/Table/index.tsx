@@ -1,49 +1,24 @@
+import { useContext } from 'react'
 import { Price, StyledTable } from './styles'
+import { TransactionsContext } from '../../../../contexts/TransactionsProvider'
+
 export function Table() {
+  const { transactions } = useContext(TransactionsContext)
+
   return (
     <>
       <StyledTable>
         <tbody>
-          <tr>
-            <td>Desenvolvimento de Site</td>
-            <td>
-              <Price variant="income">R$ 12.000,00</Price>
-            </td>
-            <td>Venda</td>
-            <td>13/04/2022</td>
-          </tr>
-          <tr>
-            <td>Hamburguer</td>
-            <td>
-              <Price variant="outcome">- R$ 59,00</Price>
-            </td>
-            <td>Alimentação</td>
-            <td>10/04/2022</td>
-          </tr>
-          <tr>
-            <td>Aluguel do apartamento</td>
-            <td>
-              <Price variant="outcome">- R$ 1.200,00</Price>
-            </td>
-            <td>Casa</td>
-            <td>27/03/2022</td>
-          </tr>
-          <tr>
-            <td>Computador</td>
-            <td>
-              <Price variant="income">R$ 5.400,00</Price>
-            </td>
-            <td>Venda</td>
-            <td>15/03/2022</td>
-          </tr>
-          <tr>
-            <td>Desenvolvimento de site</td>
-            <td>
-              <Price variant="income">R$ 8.000,00</Price>
-            </td>
-            <td>Venda</td>
-            <td>13/03/2022</td>
-          </tr>
+          {transactions.map((transaction) => (
+            <tr key={transaction.id}>
+              <td>{transaction.description}</td>
+              <td>
+                <Price variant={transaction.type}>{transaction.price}</Price>
+              </td>
+              <td>{transaction.category}</td>
+              <td>{new Date(transaction.createdAT).toLocaleDateString()}</td>
+            </tr>
+          ))}
         </tbody>
       </StyledTable>
     </>

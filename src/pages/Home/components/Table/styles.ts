@@ -20,6 +20,9 @@ export const StyledTable = styled.table`
     td:first-child {
       width: 45%;
       padding-left: 2rem;
+
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
     }
 
     td {
@@ -29,6 +32,9 @@ export const StyledTable = styled.table`
     td:last-child {
       text-align: right;
       padding-right: 2rem;
+
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
   }
 `
