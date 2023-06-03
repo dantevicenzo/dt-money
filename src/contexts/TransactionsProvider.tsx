@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { api } from '../lib/axios'
 
 interface ITransaction {
   id: number
@@ -6,11 +7,20 @@ interface ITransaction {
   price: number
   type: 'income' | 'outcome'
   category: string
-  createdAT: string
+  createdAt: string
+}
+
+interface IAddNewTransactionProps {
+  description: string
+  price: number
+  type: 'income' | 'outcome'
+  category: string
 }
 
 interface ITransactionsContext {
   transactions: ITransaction[]
+  fetchTransactions: (query?: string) => Promise<void>
+  addNewTransaction: (newTransaction: IAddNewTransactionProps) => Promise<void>
 }
 
 export const TransactionsContext = React.createContext(
@@ -24,10 +34,30 @@ interface ITransactionsProviderProps {
 export function TransactionsProvider({ children }: ITransactionsProviderProps) {
   const [transactions, setTransactions] = useState<ITransaction[]>([])
 
-  async function fetchTransactions() {
-    const response = await fetch('http://localhost:3000/transactions')
-    const data = await response.json()
-    setTransactions(data)
+  async function fetchTransactions(query?: string) {
+    const response = await api.get('transactions', {
+      params: {
+        _sort: 'createdAt',
+        _order: 'desc',
+        q: query,
+      },
+    })
+    setTransactions(response.data)
+  }
+
+  async function addNewTransaction(data: IAddNewTransactionProps) {
+    const { description, category, price, type } = data
+    const dateNow = new Date()
+
+    const response = await api.post('/transactions', {
+      description,
+      price,
+      type,
+      category,
+      createdAt: dateNow.toISOString(),
+    })
+
+    setTransactions((prev) => [response.data, ...prev])
   }
 
   useEffect(() => {
@@ -35,7 +65,9 @@ export function TransactionsProvider({ children }: ITransactionsProviderProps) {
   }, [])
 
   return (
-    <TransactionsContext.Provider value={{ transactions }}>
+    <TransactionsContext.Provider
+      value={{ transactions, fetchTransactions, addNewTransaction }}
+    >
       {children}
     </TransactionsContext.Provider>
   )

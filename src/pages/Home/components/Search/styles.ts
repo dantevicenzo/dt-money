@@ -26,7 +26,12 @@ export const SearchButton = styled.button`
   box-shadow: 0 0 0 1px ${(props) => props.theme.greenLight};
   cursor: pointer;
 
-  &:hover {
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:enabled:hover {
     box-shadow: none;
     background-color: ${(props) => props.theme.green};
     color: ${(props) => props.theme.white};

@@ -16,7 +16,12 @@ export const StyledButton = styled.button`
 
   cursor: pointer;
 
-  &:hover {
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:enabled:hover {
     background-color: ${(props) => props.theme.greenLight};
   }
 `
@@ -61,7 +66,8 @@ export const Form = styled.form`
     margin-top: 2.5rem;
   }
 
-  input[type='text'] {
+  input[type='text'],
+  input[type='number'] {
     border-radius: 6px;
     padding: 1rem;
     background-color: ${(props) => props.theme.grey1};

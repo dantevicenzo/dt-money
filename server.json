@@ -1,36 +1,60 @@
 {
-    "transactions": [
-        {
-            "id": 1,
-            "description": "Desenvolvimento de Site",
-            "price": 12000,
-            "type": "income",
-            "category":"Venda",
-            "createdAT": "2023-04-13T18:56:48.164Z"
-        },
-        {
-            "id": 2,
-            "description": "Hamburguer",
-            "price": 59,
-            "type": "outcome",
-            "category":"Alimentação",
-            "createdAT": "2023-04-10T18:56:48.164Z"
-        },
-        {
-            "id": 3,
-            "description": "Aluguel do apartamento",
-            "price": 1200,
-            "type": "outcome",
-            "category":"Casa",
-            "createdAT": "2023-03-27T18:56:48.164Z"
-        },
-        {
-            "id": 4,
-            "description": "Computador",
-            "price": 5400,
-            "type": "income",
-            "category":"Venda",
-            "createdAT": "2023-03-15T18:56:48.164Z"
-        }
-    ]
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de Site",
+      "price": 12000,
+      "type": "income",
+      "category": "Venda",
+      "createdAt": "2023-04-13T18:56:48.164Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburguer",
+      "price": 59,
+      "type": "outcome",
+      "category": "Alimentação",
+      "createdAt": "2023-04-10T18:56:48.164Z"
+    },
+    {
+      "id": 3,
+      "description": "Aluguel do apartamento",
+      "price": 1200,
+      "type": "outcome",
+      "category": "Casa",
+      "createdAt": "2023-03-27T18:56:48.164Z"
+    },
+    {
+      "id": 4,
+      "description": "Computador",
+      "price": 5400,
+      "type": "income",
+      "category": "Venda",
+      "createdAt": "2023-03-15T18:56:48.164Z"
+    },
+    {
+      "description": "Construção de Site",
+      "price": 15000,
+      "type": "income",
+      "category": "Venda",
+      "createdAt": "2023-06-03T20:16:00.444Z",
+      "id": 5
+    },
+    {
+      "description": "Salário Front-End",
+      "price": 15000,
+      "type": "income",
+      "category": "Salário",
+      "createdAt": "2023-06-03T20:17:05.942Z",
+      "id": 6
+    },
+    {
+      "description": "Açaí",
+      "price": 15,
+      "type": "outcome",
+      "category": "Alimentação",
+      "createdAt": "2023-06-03T20:18:32.419Z",
+      "id": 7
+    }
+  ]
 }
